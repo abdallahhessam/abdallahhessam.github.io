@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#dc2626"/></marker>
+    <marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#111"/></marker>
+  </defs>
+  <rect width="1000" height="540" fill="#ffffff"/>
+  <text x="20" y="30" font-size="20" font-weight="bold" fill="#111">Scarab combat robot: system diagram</text>
+
+  <!-- legend -->
+  <line x1="20" y1="55" x2="60" y2="55" stroke="#2563eb" stroke-width="3"/><text x="68" y="59" font-size="12" fill="#111">Signal</text>
+  <line x1="130" y1="55" x2="170" y2="55" stroke="#dc2626" stroke-width="3"/><text x="178" y="59" font-size="12" fill="#111">Power</text>
+  <line x1="240" y1="55" x2="280" y2="55" stroke="#111" stroke-width="5"/><text x="288" y="59" font-size="12" fill="#111">Motor wiring</text>
+
+  <!-- boxes -->
+  <g stroke="#111" stroke-width="2" fill="#f3f4f6">
+    <rect x="20"  y="220" width="150" height="70" rx="8"/>
+    <rect x="250" y="190" width="190" height="130" rx="8" fill="#dbeafe"/>
+    <rect x="560" y="70"  width="170" height="90" rx="8"/>
+    <rect x="560" y="290" width="170" height="90" rx="8"/>
+    <rect x="560" y="400" width="170" height="40" rx="8" fill="#fef3c7"/>
+    <rect x="810" y="40"  width="170" height="50" rx="8" fill="#e5e7eb"/>
+    <rect x="810" y="110" width="170" height="50" rx="8" fill="#e5e7eb"/>
+    <rect x="810" y="310" width="170" height="50" rx="8" fill="#e5e7eb"/>
+    <rect x="250" y="400" width="190" height="50" rx="8" fill="#fef3c7"/>
+    <rect x="20"  y="470" width="150" height="60" rx="8" fill="#fee2e2"/>
+    <rect x="210" y="470" width="140" height="60" rx="8" fill="#fee2e2"/>
+  </g>
+
+  <!-- box text -->
+  <g font-size="13" fill="#111" text-anchor="middle">
+    <text x="95" y="250" font-weight="bold">PS4 controller</text><text x="95" y="268">DualShock 4</text>
+    <text x="345" y="225" font-weight="bold">ESP32</text><text x="345" y="245">Bluetooth + PWM (LEDC)</text><text x="345" y="265">20 kHz, 8 bit</text><text x="345" y="285">Failsafe, arm / disarm</text>
+    <text x="645" y="108" font-weight="bold">Motor driver 30A</text><text x="645" y="128">Drive: left + right</text>
+    <text x="645" y="328" font-weight="bold">Motor driver 30A</text><text x="645" y="348">Weapon</text>
+    <text x="645" y="425">Relay (weapon power)</text>
+    <text x="895" y="62">Left drive motor</text><text x="895" y="132">Right drive motor</text><text x="895" y="332">Weapon motor</text>
+    <text x="345" y="430">Step-down to 5V</text>
+    <text x="95" y="495" font-weight="bold">Batteries</text><text x="95" y="515">3 x 12V</text>
+    <text x="280" y="495" font-weight="bold">Emergency stop</text><text x="280" y="515">main power cut</text>
+  </g>
+  <g font-size="11" fill="#444" text-anchor="middle">
+    <text x="895" y="80">MY1016Z 24V 350W</text><text x="895" y="150">MY1016Z 24V 350W</text><text x="895" y="350">MY1016Z 24V 350W</text>
+  </g>
+
+  <!-- signal lines -->
+  <g stroke="#2563eb" stroke-width="3" fill="none">
+    <line x1="170" y1="255" x2="248" y2="255" marker-end="url(#ab)"/>
+    <polyline points="440,205 480,205 480,100 558,100" marker-end="url(#ab)"/>
+    <polyline points="440,265 540,265 540,310 558,310" marker-end="url(#ab)"/>
+    <polyline points="440,300 500,300 500,410 558,410" marker-end="url(#ab)"/>
+    <line x1="345" y1="400" x2="345" y2="322" marker-end="url(#ab)"/>
+  </g>
+  <g font-size="11" fill="#2563eb">
+    <text x="176" y="245">Bluetooth</text>
+    <text x="450" y="196">4 PWM</text>
+    <text x="446" y="258" >2 PWM</text>
+    <text x="450" y="318">GPIO</text>
+    <text x="352" y="365">5V</text>
+  </g>
+
+  <!-- power lines -->
+  <g stroke="#dc2626" stroke-width="3" fill="none">
+    <line x1="170" y1="500" x2="208" y2="500" marker-end="url(#ar)"/>
+    <polyline points="350,500 520,500 520,140 558,140" marker-end="url(#ar)"/>
+    <polyline points="520,430 558,430" marker-end="url(#ar)"/>
+    <line x1="645" y1="400" x2="645" y2="382" marker-end="url(#ar)"/>
+    <line x1="345" y1="500" x2="345" y2="452" marker-end="url(#ar)"/>
+  </g>
+
+  <!-- motor lines -->
+  <g stroke="#111" stroke-width="5" fill="none">
+    <line x1="730" y1="85"  x2="808" y2="65"  marker-end="url(#ak)"/>
+    <line x1="730" y1="145" x2="808" y2="135" marker-end="url(#ak)"/>
+    <line x1="730" y1="335" x2="808" y2="335" marker-end="url(#ak)"/>
+  </g>
+</svg>

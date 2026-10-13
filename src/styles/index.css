@@ -1,0 +1,94 @@
+@import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/400-italic.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/jetbrains-mono/400.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --nav-h: 4rem;
+  }
+  html {
+    background: theme("colors.ground");
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  body {
+    @apply bg-ground font-sans text-ink antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  /* Keep the fixed nav and footer clear of phone status bars and home indicators. */
+  header.fixed { padding-top: env(safe-area-inset-top, 0px); }
+  footer { padding-bottom: env(safe-area-inset-bottom, 0px); }
+  section[id], [data-anchor] { scroll-margin-top: calc(var(--nav-h) + 1.25rem); }
+  h1, h2, h3 { @apply font-display text-ink; font-variation-settings: "wdth" 112; }
+  h1 { font-weight: 720; letter-spacing: -0.02em; line-height: 1.02; }
+  h2 { font-weight: 680; letter-spacing: -0.015em; line-height: 1.1; }
+  h3 { font-weight: 640; letter-spacing: -0.005em; line-height: 1.25; }
+  ::selection { background: rgba(63, 208, 196, 0.32); color: #fff; }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.signal");
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .sheet { @apply mx-auto w-full max-w-sheet px-5 sm:px-8; }
+
+  /* Engineering grid used behind the hero and diagrams. */
+  .blueprint {
+    background-image:
+      linear-gradient(rgba(147, 161, 172, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(147, 161, 172, 0.07) 1px, transparent 1px),
+      linear-gradient(rgba(147, 161, 172, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(147, 161, 172, 0.035) 1px, transparent 1px);
+    background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+  }
+
+  .btn {
+    @apply inline-flex min-h-[44px] items-center gap-2 rounded px-4 py-2.5 text-[0.95rem] font-medium transition-colors duration-150;
+  }
+  .btn-primary { @apply bg-signal text-ground hover:bg-[#6BE0D6]; }
+  .btn-secondary { @apply border border-rule bg-panel text-ink hover:border-faint hover:bg-raised; }
+  .btn-quiet { @apply text-muted hover:text-ink; }
+
+  .tag {
+    @apply inline-flex items-center rounded-sm border border-rule px-2 py-0.5 text-[0.8rem] leading-6 text-muted;
+  }
+
+  .text-link {
+    @apply text-signal underline decoration-signal/40 underline-offset-4 transition-colors hover:decoration-signal;
+  }
+
+  /* Section heading with a dimension-line rule. */
+  .dim-rule {
+    position: relative;
+    height: 9px;
+    border-left: 1px solid theme("colors.faint");
+    border-right: 1px solid theme("colors.faint");
+  }
+  .dim-rule::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 4px;
+    border-top: 1px solid theme("colors.rule");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
