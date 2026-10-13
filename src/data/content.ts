@@ -27,7 +27,6 @@ const GH = "https://github.com/abdallahhessam";
 export const profile = {
   name: "Abdallah Essam",
   headline: "Mechatronics & Robotics Engineer",
-  role: "Robotics & AI Specialist at Atlab",
   location: "Dubai, UAE",
   statement:
     "I build robots end to end — the mechanism, the electronics, the firmware and the perception stack — and I teach other engineers how to do the same.",
@@ -42,7 +41,7 @@ export const profile = {
 
 /** Short facts shown beside the hero. Each is stated in the CV or a supplied document. */
 export const heroFacts: { label: string; value: string }[] = [
-  { label: "Currently", value: "ROS 2 robotics on Jetson AGX Orin at Atlab" },
+  { label: "Current position", value: "Robotics & AI Specialist at Atlab" },
   { label: "Platforms", value: "Arms, ground vehicles, humanoid, quadruped, UAVs" },
   { label: "Degree", value: "BSc Automotive Mechatronics, Helwan University" },
 ];
