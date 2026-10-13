@@ -27,6 +27,7 @@ const GH = "https://github.com/abdallahhessam";
 export const profile = {
   name: "Abdallah Essam",
   headline: "Mechatronics & Robotics Engineer",
+  role: "",
   location: "Dubai, UAE",
   statement:
     "I build robots end to end — the mechanism, the electronics, the firmware and the perception stack — and I teach other engineers how to do the same.",
